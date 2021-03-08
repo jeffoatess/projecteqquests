@@ -24,11 +24,11 @@ function event_say(e)
 	elseif(e.message:findi("continue")) then
 		--if Cynosure is up do not proceed
 		if(eq.get_entity_list():IsMobSpawnedByNpcTypeID(295140) == false and eq.get_entity_list():IsMobSpawnedByNpcTypeID(295149) == false) then
-			local request = instance_requests.ValidateRequest('raid', "inktuta", 0, 6, 54, 65, nil, nil, e.other, inktuta_globals);
+			local request = instance_requests.ValidateRequest('group', "inktuta", 0, 1, 54, 65, nil, nil, e.other, inktuta_globals);
 			if (request.valid) then
 				local instance_id = eq.create_instance("inktuta", 0, 21600);
 				eq.set_global(instance_id.."_inktuta_bit",tostring(request.flags),7,"H6");
-				eq.assign_raid_to_instance(instance_id);
+				eq.assign_group_to_instance(instance_id);
 				e.self:Say("Very well! If you will not heed my warning, then you have chosen to suffer the consequences. I grant you entrance to Inktu`Ta.");
 			end
 		else

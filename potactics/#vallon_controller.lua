@@ -17,8 +17,8 @@ function event_signal(e)
 		--spawn Vallon and 4 clones.
 		eq.spawn2(214110,0,0,-606,1980,195.1,131);	-- Fake Vallon
 		eq.spawn2(214110,0,0,-666,1980,195.1,131);	-- Fake Vallon
-		eq.spawn2(214110,0,0,-636,1950,195.1,131);	-- Fake Vallon
-		eq.spawn2(214110,0,0,-636,2010,195.1,131);	-- Fake Vallon
+--		eq.spawn2(214110,0,0,-636,1950,195.1,131);	-- Fake Vallon
+--		eq.spawn2(214110,0,0,-636,2010,195.1,131);	-- Fake Vallon
 		eq.spawn2(214083,0,0,-636,1980,195.1,131);	-- Real Vallon
 	elseif (e.signal == 3) then --vallon dead, despawn with timer
 		eq.depop_with_timer();

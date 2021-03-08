@@ -15,7 +15,7 @@ sub EVENT_SAY {
 	if ($say_ready) { 
 		if ($text=~/awaken me from this nightmare/i) {
 			$say_ready = 0;
-			quest::settimer("set_ready",30);
+			quest::settimer("set_ready",300);
 			quest::signalwith(296070,296035); #signal zone_status
 		} else {
 			$say_ready = 0;

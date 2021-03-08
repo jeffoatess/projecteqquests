@@ -13,7 +13,7 @@ end
 
 function event_combat(e)
 	if (e.joined == true) then
-		eq.set_timer("banishHateTop",45000)
+		--eq.set_timer("banishHateTop",45000)
 		eq.set_timer("spawn_add", add_timer)
 		-- Wanton Destruction, scripted AE
 		eq.set_timer("wanton",15000)
@@ -25,11 +25,11 @@ function event_combat(e)
 		end
 	else
 		-- wipe or tether
-		eq.stop_timer("banishHateTop")
+		--eq.stop_timer("banishHateTop")
 		eq.stop_timer("spawn_add")
 		eq.stop_timer("wanton")
 		eq.signal(297147, 297150) -- Tell Ritualists I lost agro
-		banished_pc = 0
+		--banished_pc = 0
 		eq.stop_timer("NS_Leash")
 	end
 end
@@ -127,8 +127,8 @@ end
 function spawn_event()
 	-- 4 Ikaav Ritualist and the two Inquisitor goats.
 	eq.spawn2(297147,0,0,1353, 0, -305, 384)
-	eq.spawn2(297147,0,0,1305, 45, -305, 256)
-	eq.spawn2(297147,0,0,1305, -45, -305, 0)
+	--eq.spawn2(297147,0,0,1305, 45, -305, 256)
+	--eq.spawn2(297147,0,0,1305, -45, -305, 0)
 	eq.spawn2(297147,0,0,1260, 0, -305, 128)
 	eq.spawn2(297148,0,0,1528, 30, -285, 384)
 	eq.spawn2(297149,0,0,1528, -30, -285, 384)

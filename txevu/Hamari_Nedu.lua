@@ -33,13 +33,13 @@ function event_say(e)
     if (e.other:HasItem(64034)) then 
       --#if have signet of command
       --#create tacvi instance
-      local request = instance_requests.ValidateRequest('raid', "tacvi", 0, 6, 54, 65, nil, nil, e.other, lockout_globals);
+      local request = instance_requests.ValidateRequest('group', "tacvi", 0, 6, 54, 65, nil, nil, e.other, lockout_globals);
       -- Only check request.valid here; because when you zone in; the status will calculate which mobs
       -- are active as each mob has its own lockout.
       if (request.valid) then 
         local instance_id = eq.create_instance("tacvi", 0, 21600);              
         eq.set_global(instance_id.."_tacvi_bit",tostring(request.flags),7,"H6");
-        eq.assign_raid_to_instance(instance_id);                                  
+        eq.assign_group_to_instance(instance_id);                                  
         e.self:Say("So be it. There is a construct nearby that will bring you to the seat of the slayer himself. May Trushar's blessing infuse your swords with the strength to cleanse this place of the Muramite invaders!");
       else
       --#if have signet but not in raid/not have enough

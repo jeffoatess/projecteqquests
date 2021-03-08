@@ -1,9 +1,7 @@
 sub EVENT_CLICKDOOR {
   if($doorid == 7) {
-    if(defined $qglobals{pop_poi_dragon}) {
-      $client->Message(15,"You remember Nitram's words - 'three small turns to the right on the bottommost rivet should open the door'.");
-      quest::forcedooropen(7);
-    }
+    $client->Message(15,"Three small turns to the right on the bottommost rivet opens the door.");
+    quest::forcedooropen(7);
   }
   if($doorid == 145) {
     if(defined $qglobals{pop_time_maelin}) {
