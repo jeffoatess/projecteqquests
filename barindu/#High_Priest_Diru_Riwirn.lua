@@ -51,7 +51,7 @@ function event_say(e)
 
   if e.message:findi("hail") then
     if sewers_flag == 0 then
-      e.other:Message(MT.NPCQuestSay, "High Priest Diru tells you, 'These are sad times.  Not only have the invaders taken away all that we own, but our own problems still occur.  If only there was someone willing to help our cause.  I beg of you, please, help us with all the problems going on in the sewers underneath this city.  They have become the breeding grounds for stonemites.  These nasty bugs get into everything.  They eat our stored food and our crops.  We need to terminate the source of the stonemites so that we will have enough food to survive.  The invaders do not provide enough for us, and we need these crops to live.  Please prepare and talk to me again when you are ready to help.'")
+      e.other:Message(MT.NPCQuestSay, "High Priest Diru tells you, 'These are sad times.  Not only have the invaders taken away all that we own, but our own problems still occur.  If only there was someone willing to help our cause.  I beg of you, please, help us with all the problems going on in the sewers underneath this city.  They have become the breeding grounds for stonemites.  These nasty bugs get into everything.  They eat our stored food and our crops.  We need to terminate the source of the stonemites so that we will have enough food to survive.  The invaders do not provide enough for us, and we need these crops to live.  Please prepare and talk to me again when you are ready to help or please say if you'd rather assist in [Kodtaz]'")
       eq.set_data(sewer_flag_key, "1") -- preflag
     elseif sewers_flag == 1 and not snplant_complete then
       e.other:Message(MT.NPCQuestSay, "High Priest Diru tells you, 'Go find Ansharu.  He has been researching their behavior patterns, and will be able to tell you what needs to be done.  I hope that you will be able to help us out in these dire times.  Please head to the sewer plant and find the source of the stonemite infestation.  If you do this for us, I will share with you how to pass through the mountains and up to the temples created by the trusik, our exiled kin.'")
@@ -79,6 +79,14 @@ function event_say(e)
       e.other:Message(MT.NPCQuestSay, "High Priest Diru tells you, 'You have done excellent work helping our tribe.  You and your kind are powerful and have done more for us than we expected, so I will reward you with the information you've been wanting.  In order to pass through the mountains, you must work with those who have the most sacred knowledge of our lands -- the master stonespiritists.  You will find an apprentice in Barindu, named Udranda.  She will grant you access to the mountain pass and then tell you what you must do.  Also, if you ever need to go back into the sewers for any reason, you can ask Gamesh to show you the way through.  Good luck to you, and to us all.'")
       eq.set_global("god_vxed_access", "1", 5, "F")	-- finished with sewers (had to talk to priest otherwise vxed was a "temporary" flag)
     end
+  elseif e.message:findi("kodtaz") then
+      eq.set_data(sewer_flag_key, "1")
+      eq.set_data(sewer_flag_key, "3")
+      eq.set_data(sewer_flag_key, "4")
+      eq.set_global("god_vxed_access", "1", 5, "F")	-- finished with sewers (had to talk to priest otherwise vxed was a "temporary" flag)
+      eq.set_global("god_tipt_access", "1", 5, "F")	-- finished with sewers (had to talk to priest otherwise vxed was a "temporary" flag)
+      eq.set_global("god_kodtaz_access", "1", 5, "F")	-- finished with sewers (had to talk to priest otherwise vxed was a "temporary" flag)
+      e.other:Message(MT.NPCQuestSay, "High Priest Diru tells you, 'Then please continue to Kodtaz to assist with our efforts there.'")
   end
 end
 

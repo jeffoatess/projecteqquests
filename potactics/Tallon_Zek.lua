@@ -1,14 +1,19 @@
-local x_max = -445;
-local x_min = -770;
-local y_max = -1761;
-local y_min = -2158;
+--local x_max = -445;
+--local x_min = -770;
+--local y_max = -1761;
+--local y_min = -2158;
+local x_max = -500;
+local x_min = -740;
+local y_max = -1860;
+local y_min = -2100;
 local z_const = 207.7;
 
 function event_combat(e)
     if e.joined then
         eq.set_timer("shadowstep", 20000);
         eq.stop_timer("reset");
-        eq.set_timer("barb", math.random(1, 4) * 1000);
+--        eq.set_timer("barb", math.random(1, 4) * 1000);
+        eq.set_timer("barb", math.random(2, 8) * 1000);
     else
         eq.stop_timer("shadowstep");
         eq.stop_timer("barb");
@@ -25,7 +30,7 @@ function event_timer(e)
         e.self:GMMove(new_x, new_y, new_z);
     elseif (e.timer == "barb") then
         e.self:CastSpell(eq.ChooseRandom(2449, 2450, 2451, 2452), e.self:GetTarget():GetID());
-        eq.set_timer("barb", math.random(2, 6) * 1000);
+        eq.set_timer("barb", math.random(3, 12) * 1000);
     elseif (e.timer == "reset") then
         e.self:GMMove(-620, -1959, 207.7);
         eq.stop_timer(e.timer);

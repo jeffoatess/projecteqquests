@@ -39,11 +39,11 @@ function KeeperTimer(e)
 		eq.spawn2(294622,0,0,816,125,-73,248); -- NPC: Altar_Assailant
 		eq.spawn2(294622,0,0,744,46,-73,202); -- NPC: Altar_Assailant
 		eq.spawn2(294622,0,0,746,125,-73,120); -- NPC: Altar_Assailant
-		eq.spawn2(294622,0,0,908,111,-73,300);		
-		eq.spawn2(294622,0,0,852,73,-73,292);		
-		eq.spawn2(294622,0,0,852,73,-73,292);		
-		eq.spawn2(294622,0,0,803,84,-73,0);
-		eq.spawn2(294622,0,0,888,123,-73,410);
+		--eq.spawn2(294622,0,0,908,111,-73,300);		
+		--eq.spawn2(294622,0,0,852,73,-73,292);		
+		--eq.spawn2(294622,0,0,852,73,-73,292);		
+		--eq.spawn2(294622,0,0,803,84,-73,0);
+		--eq.spawn2(294622,0,0,888,123,-73,410);
 	elseif e.timer=="adhere" then
 		e.self:Emote("slams its fist to the ground which calls forth an adherent to aid it in battle!");
 		eq.set_timer("adhere",100*1000);
@@ -60,7 +60,7 @@ function KeeperTimer(e)
 		end
 		num_adhere=num_adhere+1;
 		eq.debug("Altar Adherent Alive: " .. num_adhere);
-		if num_adhere >=5 then
+		if num_adhere >=2 then
 			eq.stop_timer("adhere");
 		end
 	elseif e.timer=="bury" then

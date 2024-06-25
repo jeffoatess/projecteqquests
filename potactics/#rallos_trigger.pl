@@ -38,7 +38,8 @@ sub EVENT_SIGNAL {
                     $Berik = 0;
                     $Grunhork = 0;
                 } else {
-                    quest::settimer("Decorin", 360); # 6min to kill other
+#                    quest::settimer("Decorin", 360); # 6min to kill other
+                    quest::settimer("Decorin", 1800); # 30min to kill other
                 }
          }
 
@@ -57,7 +58,8 @@ sub EVENT_SIGNAL {
                     $Berik = 0;
                     $Grunhork = 0;
                 } else {
-                    quest::settimer("Decorin", 360); # 6min to kill other
+#                    quest::settimer("Decorin", 360); # 6min to kill other
+                    quest::settimer("Decorin", 1800); # 30min to kill other
                 }
          }
 
