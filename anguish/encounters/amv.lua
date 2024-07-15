@@ -37,9 +37,9 @@ end
 function AMV_Combat(e)
 	if e.joined then
 		if math.random(2) == 1 then
-			eq.spawn2(317110,0,0,331, 4961, 278, 128):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
+			--eq.spawn2(317110,0,0,331, 4961, 278, 128):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
 		else
-			eq.spawn2(317110,0,0,505, 4792, 278, 384):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
+			--eq.spawn2(317110,0,0,505, 4792, 278, 384):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
 		end
 		eq.set_timer("adds", math.random(55,140) * 1000);
 		eq.set_timer("touch", math.random(10,35) * 1000);
@@ -95,9 +95,9 @@ function AMV_Timer(e)
 		eq.stop_timer("check_mark");
 	elseif e.timer == "adds" then
 		if math.random(2) == 1 then
-			eq.spawn2(317110,0,0,331, 4961, 278, 128):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
+			--eq.spawn2(317110,0,0,331, 4961, 278, 128):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
 		else
-			eq.spawn2(317110,0,0,505, 4792, 278, 384):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
+			--eq.spawn2(317110,0,0,505, 4792, 278, 384):AddToHateList(e.self:GetHateRandom(),1); -- NPC: a_languished_convert
 		end
 		eq.stop_timer("adds");
 		eq.set_timer("adds", math.random(55,140) * 1000);
@@ -205,7 +205,7 @@ function event_encounter_load(e)
 	eq.register_npc_event('amv', Event.timer, 			317108, Focus_Timer);
 
 	eq.register_npc_event('amv', Event.spawn, 			317110, Convert_Spawn);
-	eq.register_npc_event('amv', Event.timer, 			317110, Convert_Timer);
+	--eq.register_npc_event('amv', Event.timer, 			317110, Convert_Timer);
 end
 
 function event_encounter_unload(e)
