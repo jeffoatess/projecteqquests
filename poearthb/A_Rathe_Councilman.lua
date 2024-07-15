@@ -15,7 +15,7 @@ local rand_hate = e.self:GetHateRandom()
 				eq.debug(rand_hate_v:GetName());
 				e.self:Say("begone " .. rand_hate_v:GetName())
 				e.self:SetHate(rand_hate_v, 1, 1)
-				rand_hate_v:MovePC(222,1864.94, 941.05, -254.0, 0)
+				--rand_hate_v:MovePC(222,1864.94, 941.05, -254.0, 0)
 			end
 		end
 end

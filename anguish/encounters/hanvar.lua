@@ -33,9 +33,9 @@ function Hanvar_Spawn(e)
 	end
 	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[1]));
 	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[2]));
-	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[3]));
-	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[4]));
-	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[5]));
+	--eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[3]));
+	--eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[4]));
+	--eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[5]));
 end
 
 function Hanvar_Combat(e)
@@ -65,7 +65,7 @@ end
 function Guard_Death(e)
 	adds_killed = adds_killed + 1;
 	min_hp=min_hp-5;
-	if adds_killed == 20 then
+	if adds_killed == 8 then
 		eq.signal(317002,99); -- NPC: Hanvar -- Stop Spawning Adds
 	else
 		eq.signal(317002,1); -- NPC: Hanvar -- Set Add respawn timer
@@ -152,9 +152,9 @@ function reset(e)
 	end
 	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[1]));
 	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[2]));
-	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[3]));
-	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[4]));
-	eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[5]));
+	--eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[3]));
+	--eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[4]));
+	--eq.spawn2(mobs[math.random(1,#mobs)],unpack(spawn_loc[5]));
 end
 
 function Hanvar_Death(e)

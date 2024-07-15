@@ -80,10 +80,11 @@ sub EVENT_CLICKDOOR {
   #powater/poearth/poair
   if($doorid == 81 || $doorid == 83 || $doorid == 84) {
     if($client->GetLevel() >= $level_for_elemental || (defined $qglobals{pop_hohb_marr} && defined $qglobals{pop_bot_agnarr} && defined $qglobals{pop_elemental_grand_librarian})) {
-      if(quest::has_zone_flag(216) != 1 || quest::has_zone_flag(215) != 1 || quest::has_zone_flag(218) != 1) {
+      if(quest::has_zone_flag(216) != 1 || quest::has_zone_flag(215) != 1 || quest::has_zone_flag(218) != 1 || quest::has_zone_flag(222) != 1) {
         quest::set_zone_flag(216);
         quest::set_zone_flag(215);
         quest::set_zone_flag(218);
+	quest::set_zone_flag(222);
       }
     }
   }

@@ -417,6 +417,9 @@ function event_level_up(e)
     end
   end
 
+  e.self:ScribeSpells(1, e.self:GetLevel());
+  e.self:LearnDisciplines(1, e.self:GetLevel());
+
   if(e.self:GetLevel() == 20 and not e.self:HasItem(200002)) then
     e.self:SummonItem(200002);
   elseif(e.self:GetLevel() == 30 and not e.self:HasItem(200003)) then
