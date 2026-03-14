@@ -5,7 +5,7 @@ sub EVENT_CLICKDOOR {
       quest::forcedooropen(7);
     }
   }
-  elseif ($doorid == 145) {
+  elsif ($doorid == 145) {
     if (defined($qglobals{pop_time_maelin})) {
       quest::set_zone_flag(219);
       quest::set_zone_flag(223);
