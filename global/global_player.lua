@@ -382,13 +382,7 @@ end
 ]]--
 
 function event_level_up(e)
-  local free_skills =  {0,1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,36,37,38,39,41,42,43,44,45,46,47,49,51,52,54,67,70,71,72,73,74,76};
-
-  for k,v in ipairs(free_skills) do
-    if ( e.self:MaxSkill(v) > 0 and e.self:GetRawSkill(v) < 1 and e.self:CanHaveSkill(v) ) then
-      e.self:SetSkill(v, 1);
-    end
-  end
+--  local free_skills =  {0,1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,36,37,38,39,41,42,43,44,45,46,47,49,51,52,54,67,70,71,72,73,74,76};
 
   if e.self:GetLevel() == 5 then
     eq.popup("", "<c \"#F0F000\">Welcome to level 5.</c><br><br>You have just been granted a new ability called '<c \"#F0F000\">Origin</c>' which allows you to teleport back to your starting city.<br><br>Open the Alternate Advancement window by pressing the '<c \"#F0F000\">V</c>' key, look in the '<c \"#F0F000\">General' tab</c>, and find the '<c \"#F0F000\">Origin</c>' ability and select it.<br><br>Now press the '<c \"#F0F000\">Hotkey</c>' button to create a hotkey you can place on your hot bar.");
@@ -396,6 +390,47 @@ function event_level_up(e)
 
   if e.self:GetLevel() == 10 and eq.is_dragons_of_norrath_enabled() then
     eq.popup("", "<c \"#F0F000\">Welcome to level 10.</c><br><br>You are now able to begin the new player armor and weapon quests.  Speak with Castlen and Barrenzin or V`Lynn Renloe in the <c \"#66CCFF\">Plane of Knowledge</c> to begin.  One additional quest will become available to you at each level past level 10, so be sure to check back with these NPCs as you continue to gain experience.");
+  end
+--  for k,v in ipairs(free_skills) do
+--    if ( e.self:MaxSkill(v) > 0 and e.self:GetRawSkill(v) < 1 and e.self:CanHaveSkill(v) ) then 
+--      e.self:SetSkill(v, 1);
+  for skill_id=0,76 do
+    if e.self:CanHaveSkill(skill_id) then
+      local raw_skill = e.self:GetRawSkill(skill_id);
+      local max_skill = e.self:MaxSkill(skill_id);
+      if ( skill_id >= 43 and skill_id <= 47 ) then
+        if ( max_skill > 0 and raw_skill < 1 ) then
+          -- Set Specialize casting skills to 1 when available
+          e.self:SetSkill(skill_id, 1);
+        end
+      else
+        if ( raw_skill < math.floor(max_skill / 2) and raw_skill < math.floor(e.self:GetLevel() * 5 / 2) ) then 
+          -- if skill is less than both max skill / 2 and level*2.5, then we need to adjust it up
+          -- use the lower of the two thresholds
+          if (max_skill <= ( e.self:GetLevel() * 5 )) then
+            e.self:SetSkill(skill_id, math.floor(max_skill / 2));
+          else
+            e.self:SetSkill(skill_id, math.floor(e.self:GetLevel() * 5 / 2));
+          end
+        end
+      end
+    end
+  end
+
+  if(e.self:GetLevel() == 20 and not e.self:HasItem(200002)) then
+    e.self:SummonItem(200002);
+  elseif(e.self:GetLevel() == 30 and not e.self:HasItem(200003)) then
+    e.self:SummonItem(200003);
+  elseif(e.self:GetLevel() == 40 and not e.self:HasItem(200004)) then
+    e.self:SummonItem(200004);
+  elseif(e.self:GetLevel() == 50 and not e.self:HasItem(200005)) then
+    e.self:SummonItem(200005);
+  elseif(e.self:GetLevel() == 60 and not e.self:HasItem(200006)) then
+    e.self:SummonItem(200006);
+  elseif(e.self:GetLevel() == 70 and not e.self:HasItem(200007)) then
+    e.self:SummonItem(200007);
+  elseif(e.self:GetLevel() == 80 and not e.self:HasItem(200008)) then
+    e.self:SummonItem(200008);
   end
 end
 

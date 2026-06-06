@@ -127,7 +127,7 @@ sub KICK_ALL_PLAYERS {
 }
 
 sub SPAWN_WAVE1 {
-  quest::settimer(1,895); # 15 Minute timer for the kickout event!!
+  #quest::settimer(1,895); # 15 Minute timer for the kickout event!!
   quest::settimer(2,180); # 3 Minute timer for second wave spawn
   quest::settimer(3,300); # 5 Minute timer for third wave
   quest::settimer(4,600); # 10 Minute timer for the emote
@@ -136,7 +136,7 @@ sub SPAWN_WAVE1 {
 
   quest::signalwith(216048,1,0); #Signal fake coirnav for first wave emote
   my $count = 0;
-  while ($count <= 24) {
+  while ($count <= 5) {
     $randX = int(rand(55));
     $randY = int(rand(75));
     $randZ = int(rand(20));
@@ -163,7 +163,7 @@ sub SPAWN_WAVE1 {
 sub SPAWN_WAVE2 {
   quest::signalwith(216048,2,0); #Signal fake coirnav for second wave emote
   my $count = 0;
-  while ($count <= 24) {
+  while ($count <= 5) {
     $randX = int(rand(55));
     $randY = int(rand(75));
     $randZ = int(rand(20));
@@ -192,7 +192,7 @@ sub SPAWN_WAVE3 {
   quest::settimer(8,1); # 1 second timer to trigger 4th wave (safety check for failed signals)
   quest::signalwith(216048,3,0); #Signal fake coirnav for third wave emote
   my $count = 0;
-  while ($count <= 24) {
+  while ($count <= 5) {
     $randX = int(rand(55));
     $randY = int(rand(75));
     $randZ = int(rand(20));
@@ -231,7 +231,7 @@ sub SPAWN_WAVE4 {
 
 sub SPAWN_WAVE5 {
   my $count = 0;
-  while ($count <= 26) {
+  while ($count <= 5) {
     $randX = int(rand(55));
     $randY = int(rand(75));
     $randZ = int(rand(20));

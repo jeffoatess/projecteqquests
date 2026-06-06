@@ -8,7 +8,7 @@ local ZMKP_AtkHit = 400 -- Rage
 local ZMKP_Delay  = 20
 
 -- Time out on Balancing seemed to be about 70 seconds
-local ZMKP_Balance_Timer = 70 * 1000
+local ZMKP_Balance_Timer = 30 * 1000
 
 local target_hp = 90
 
@@ -127,26 +127,85 @@ function ZMKP_Timer(e)
 end
 
 function ZMKP_Hp(e)
-	if e.hp_event == 90 or e.hp_event == 80 or e.hp_event == 70 or e.hp_event == 60 or e.hp_event == 50 or e.hp_event == 40 or e.hp_event == 30 then
-		if e.hp_event == 90 then
-			eq.signal(298223,1) -- Lock Doors
-		end
+	if e.hp_event == 90 then
+		eq.signal(298223,1); -- Lock Doors
 
-		eq.set_timer("balance", ZMKP_Balance_Timer)
-		eq.get_entity_list():MessageClose(e.self, false, 120, MT.Yellow, "Kvxe enters a state of battle meditation.")
-		e.self:ProcessSpecialAbilities(ZMKP_Inactive)
-		e.self:SetOOCRegen(0)
-		e.self:WipeHateList()
+		eq.set_timer("balance", ZMKP_Balance_Timer);
+		eq.get_entity_list():MessageClose(e.self, false, 120, MT.Yellow, "Kvxe enters a state of battle meditation.");
+		e.self:ProcessSpecialAbilities(ZMKP_Inactive);
+		e.self:SetOOCRegen(0);
+		e.self:WipeHateList();
 
-		eq.signal(298125, 2) -- NPC: #Balance_of_Speed
-		eq.signal(298126, 2) -- NPC: #Balance_of_Defense
-		eq.signal(298127, 2) -- NPC: #Balance_of_Fury
-		eq.signal(298128, 2) -- NPC: #Balance_of_Rage
-	elseif e.hp_event == 20 then
-		eq.get_entity_list():MessageClose(e.self, false, 120, MT.Yellow, "Kvxe enters a state of seething rage as he accelerates his combat speed.")
-		ZMKP_Delay = ZMKP_Delay - 2
-		e.self:ModifyNPCStat("attack_delay",  tostring(ZMKP_Delay))
-	end
+		eq.signal(298125, 2); -- NPC: #Balance_of_Speed
+		eq.signal(298126, 2); -- NPC: #Balance_of_Defense
+		eq.signal(298127, 2); -- NPC: #Balance_of_Fury
+		eq.signal(298128, 2); -- NPC: #Balance_of_Rage
+
+--  elseif (e.hp_event == 80) then
+--    eq.get_entity_list():MessageClose(e.self, false, 120, 15, "Kvxe enters a state of battle meditation.");
+--    eq.set_timer("balance", ZMKP_Balance_Timer);
+--    e.self:ProcessSpecialAbilities(ZMKP_Inactive);
+--    e.self:SetOOCRegen(0);
+--    e.self:WipeHateList();
+--
+--    eq.signal(298125, 2); -- NPC: #Balance_of_Speed
+--    eq.signal(298126, 2); -- NPC: #Balance_of_Defense
+--    eq.signal(298127, 2); -- NPC: #Balance_of_Fury
+--    eq.signal(298128, 2); -- NPC: #Balance_of_Rage
+
+--  elseif (e.hp_event == 60) then
+--    eq.get_entity_list():MessageClose(e.self, false, 120, 15, "Kvxe enters a state of battle meditation.");
+--    eq.set_timer("balance", ZMKP_Balance_Timer);
+--    e.self:ProcessSpecialAbilities(ZMKP_Inactive);
+--    e.self:SetOOCRegen(0);
+--    e.self:WipeHateList();
+--
+--    eq.signal(298125, 2); -- NPC: #Balance_of_Speed
+--    eq.signal(298126, 2); -- NPC: #Balance_of_Defense
+--    eq.signal(298127, 2); -- NPC: #Balance_of_Fury
+--    eq.signal(298128, 2); -- NPC: #Balance_of_Rage
+
+  elseif (e.hp_event == 50) then
+    eq.get_entity_list():MessageClose(e.self, false, 120, 15, "Kvxe enters a state of battle meditation.");
+    eq.set_timer("balance", ZMKP_Balance_Timer);
+    e.self:ProcessSpecialAbilities(ZMKP_Inactive);
+    e.self:SetOOCRegen(0);
+    e.self:WipeHateList();
+
+    eq.signal(298125, 2); -- NPC: #Balance_of_Speed
+    eq.signal(298126, 2); -- NPC: #Balance_of_Defense
+    eq.signal(298127, 2); -- NPC: #Balance_of_Fury
+    eq.signal(298128, 2); -- NPC: #Balance_of_Rage
+
+--  elseif (e.hp_event == 40) then
+--    eq.get_entity_list():MessageClose(e.self, false, 120, 15, "Kvxe enters a state of battle meditation.");
+--    eq.set_timer("balance", ZMKP_Balance_Timer);
+--    e.self:ProcessSpecialAbilities(ZMKP_Inactive);
+--    e.self:SetOOCRegen(0);
+--    e.self:WipeHateList();
+--
+--    eq.signal(298125, 2); -- NPC: #Balance_of_Speed
+--    eq.signal(298126, 2); -- NPC: #Balance_of_Defense
+--    eq.signal(298127, 2); -- NPC: #Balance_of_Fury
+--    eq.signal(298128, 2); -- NPC: #Balance_of_Rage
+
+  elseif (e.hp_event == 30) then
+    eq.get_entity_list():MessageClose(e.self, false, 120, 15, "Kvxe enters a state of battle meditation.");
+    eq.set_timer("balance", ZMKP_Balance_Timer);
+    e.self:ProcessSpecialAbilities(ZMKP_Inactive);
+    e.self:SetOOCRegen(0);
+    e.self:WipeHateList();
+
+    eq.signal(298125, 2); -- NPC: #Balance_of_Speed
+    eq.signal(298126, 2); -- NPC: #Balance_of_Defense
+    eq.signal(298127, 2); -- NPC: #Balance_of_Fury
+    eq.signal(298128, 2); -- NPC: #Balance_of_Rage
+
+--  elseif (e.hp_event == 20) then
+--    eq.get_entity_list():MessageClose(e.self, false, 120, 15, "Kvxe enters a state of seething rage as he accelerates his combat speed.");
+--    ZMKP_Delay = ZMKP_Delay * 0.90;
+--    e.self:ModifyNPCStat("attack_delay",  tostring(ZMKP_Delay));
+  end
 end
 
 function ZMKP_Death(e)

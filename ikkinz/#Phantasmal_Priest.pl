@@ -4,7 +4,9 @@
 
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::say("You seek to move behind this door, yet I cannot allow that until someone with a like mind as me comes forward. Only they will understand the calling and only they can do what is necessary to proceed. If there be anyone who matches my ambitions, step forward to [" . quest::saylink("answer the challenge") . "].");
+    quest::say("Proceed.");
+    #quest::say("You seek to move behind this door, yet I cannot allow that until someone with a like mind as me comes forward." . 
+	#"  Only they will understand the calling and only they can do what is necessary to proceed.  If there be anyone who matches my ambitions, step forward to [" . quest::saylink("answer the challenge") . "].");
   }
   elsif ($text=~/challenge/i) {
     if ($class=~/^(Cleric|Druid|Shaman)$/i) {

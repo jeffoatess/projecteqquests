@@ -11,6 +11,10 @@ function event_say(e)
 			gm_bypass = true;
 		end
 		-- load the current qglobals
+        if (e.other:HasZoneFlag(295) == false and e.other:HasItem(60254)) then
+            e.other:SetZoneFlag(295);
+            eq.set_global("god_qvic_access","2",5,"F");
+        end
 		local qglobals = eq.get_qglobals(e.other);
 		if (gm_bypass or (e.other:HasZoneFlag(295) and tonumber(qglobals["god_qvic_access"]) >= 2)) then
 			-- send to safe spot in Qvic. Confirmed /loc on Live as of 2011/05/31

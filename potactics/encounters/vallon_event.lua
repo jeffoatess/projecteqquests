@@ -4,6 +4,7 @@ local vallon_id 		= 214083;
 local fake_vallon_id	= 214110;
 local vz_controller_id	= 214112;
 local pp_id				= 202368;
+local num_vz            = 3; -- usually 5
 local vz_counter		= 0;
 local pp_counter		= 0;
 local started			= false;
@@ -44,7 +45,7 @@ function Vallon_Timer(e)
 	if e.timer == "reset" then
 		if not e.self:IsEngaged() then
 			eq.signal(vz_controller_id,99);	-- signal #vz_controller to reset
-			eq.get_entity_list():GetSpawnByID(369024):Repop(5);
+			eq.get_entity_list():GetSpawnByID(369024):Repop(num_vz);
 			eq.depop_all(fake_vallon_id); -- depop fake VZs
 			eq.depop();
 		else
@@ -66,9 +67,9 @@ end
 
 function vz_controller_Signal(e)	-- send signal to controller to get event stage
 	if e.signal == 1 then			-- returned signal that event not yet at final phase
-		if vz_counter < 5 and started then
+		if vz_counter < num_vz and started then
 			eq.signal(vallon_id,1);	-- Vallon_Zek (214083)
-		elseif vz_counter == 5 and started then
+		elseif vz_counter == num_vz and started then
 			eq.signal(vallon_id,2);	-- final phase
 			vz_counter = 0;
 		end
@@ -85,9 +86,9 @@ function vz_controller_Signal(e)	-- send signal to controller to get event stage
 end
 
 function spawn_wave(e)
-	local rng = math.random(1, 5); -- so the real one isn't always named 'Vallon_Zek000'
+	local rng = math.random(1, num_vz); -- so the real one isn't always named 'Vallon_Zek000'
 
-	for i = 1, 5 do
+	for i = 1, num_vz do
 		if i == rng then
 			eq.spawn2(vallon_id,0,0,-640 + math.random(-50,50),1980 + math.random(-50,50),230,128);			-- NPC: Vallon_Zek_ (214083) -- REAL
 		else

@@ -387,7 +387,7 @@ function ControlPhaseThree()
 		current_phase = "Phase3.1";
 	elseif (current_phase == "Phase3.1") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.2";
 			-- spawn phase 3 wave 2
@@ -400,7 +400,7 @@ function ControlPhaseThree()
 		end
 	elseif (current_phase == "Phase3.2") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.3";
 			-- spawn phase 3 wave 3
@@ -412,7 +412,7 @@ function ControlPhaseThree()
 		end
 	elseif (current_phase == "Phase3.3") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.4";
 			-- spawn phase 3 wave 4
@@ -424,7 +424,7 @@ function ControlPhaseThree()
 			end
 	elseif (current_phase == "Phase3.4") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.5";
 			-- spawn phase 3 wave 5
@@ -436,7 +436,7 @@ function ControlPhaseThree()
 		end
 	elseif (current_phase == "Phase3.5") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.6";
 			-- spawn phase 3 wave 6
@@ -448,7 +448,7 @@ function ControlPhaseThree()
 		end
 	elseif (current_phase == "Phase3.6") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.7";
 			-- spawn phase 3 wave 7
@@ -460,7 +460,7 @@ function ControlPhaseThree()
 		end
 	elseif (current_phase == "Phase3.7") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.8";
 			-- spawn phase 3 wave 8
@@ -472,7 +472,7 @@ function ControlPhaseThree()
 		end
 	elseif (current_phase == "Phase3.8") then
 		event_counter = event_counter + 1;
-		if (event_counter == 10) then
+		if (event_counter == 5) then
 			event_counter = 0;
 			current_phase = "Phase3.9";
 			-- turn off spawn condition for wave 8

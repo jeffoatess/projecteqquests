@@ -7,7 +7,7 @@ function event_combat(e)
     -- /loc updated from MySEQ capture 2014/01/26
     eq.spawn2(294137,0,0,418.5914,-179.3205,10.502,384); -- NPC: Dire_Illusion
     eq.spawn2(294137,0,0,418.5914,-94.3507,10.502,384); -- NPC: Dire_Illusion
-    eq.spawn2(294137,0,0,379.2154,-186.3592,1.502002,512); -- NPC: Dire_Illusion
+    --eq.spawn2(294137,0,0,379.2154,-186.3592,1.502002,512); -- NPC: Dire_Illusion
     eq.set_timer("OOBcheck", 3 * 1000);
     eq.set_timer("checkdisc", 5 * 1000);
 	eq.set_timer("checkhate", 3 * 1000);
