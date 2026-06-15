@@ -420,6 +420,39 @@ function event_level_up(e)
   e.self:ScribeSpells(1, e.self:GetLevel());
   e.self:LearnDisciplines(1, e.self:GetLevel());
 
+	-- Passive combat mastery AAs moved from Adventurer's Spirit VI-VIII.
+	-- Grant ranks at 55/65/75 in lockstep with progression.
+	-- Ability IDs: Adventurer's Avoidance=10010, Adventurer's Riposte=10011
+	-- Rank IDs: Avoidance=20010/20011/20012, Riposte=20020/20021/20022
+	local level = e.self:GetLevel();
+
+	if level >= 55 then
+		if e.self:GetAA(20010) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10010, 1);
+		end
+		if e.self:GetAA(20020) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10011, 1);
+		end
+	end
+
+	if level >= 65 then
+		if e.self:GetAA(20011) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10010, 1);
+		end
+		if e.self:GetAA(20021) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10011, 1);
+		end
+	end
+
+	if level >= 75 then
+		if e.self:GetAA(20012) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10010, 1);
+		end
+		if e.self:GetAA(20022) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10011, 1);
+		end
+	end
+
   if(e.self:GetLevel() == 20 and not e.self:HasItem(200002)) then
     e.self:SummonItem(200002);
   elseif(e.self:GetLevel() == 30 and not e.self:HasItem(200003)) then
