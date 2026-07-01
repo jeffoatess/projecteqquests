@@ -420,36 +420,16 @@ function event_level_up(e)
   e.self:ScribeSpells(1, e.self:GetLevel());
   e.self:LearnDisciplines(1, e.self:GetLevel());
 
-	-- Passive combat mastery AAs moved from Adventurer's Spirit VI-VIII.
-	-- Grant ranks at 55/65/75 in lockstep with progression.
-	-- Ability IDs: Adventurer's Avoidance=10012, Adventurer's Riposte=10013
-	-- Rank IDs: Avoidance=20120/20121/20122, Riposte=20130/20131/20132
-	local level = e.self:GetLevel();
-
-	if level >= 55 then
-		if e.self:GetAA(20120) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10012, 1);
-		end
-		if e.self:GetAA(20130) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10013, 1);
-		end
-	end
-
-	if level >= 65 then
-		if e.self:GetAA(20121) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10012, 1);
-		end
-		if e.self:GetAA(20131) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10013, 1);
-		end
-	end
-
-	if level >= 75 then
-		if e.self:GetAA(20122) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10012, 1);
-		end
-		if e.self:GetAA(20132) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10013, 1);
+	-- Auto-grant eligible ranks for custom combat passives on every level-up.
+	-- AA IDs: 10001-10013
+	for aa_id = 10001, 10013 do
+		local previous_rank = e.self:GetAAByAAID(aa_id);
+		while e.self:GrantAlternateAdvancementAbility(aa_id, 1, true) do
+			local current_rank = e.self:GetAAByAAID(aa_id);
+			if current_rank <= previous_rank then
+				break;
+			end
+			previous_rank = current_rank;
 		end
 	end
 end
