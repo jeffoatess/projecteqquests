@@ -422,52 +422,36 @@ function event_level_up(e)
 
 	-- Passive combat mastery AAs moved from Adventurer's Spirit VI-VIII.
 	-- Grant ranks at 55/65/75 in lockstep with progression.
-	-- Ability IDs: Adventurer's Avoidance=10010, Adventurer's Riposte=10011
-	-- Rank IDs: Avoidance=20010/20011/20012, Riposte=20020/20021/20022
+	-- Ability IDs: Adventurer's Avoidance=10012, Adventurer's Riposte=10013
+	-- Rank IDs: Avoidance=20120/20121/20122, Riposte=20130/20131/20132
 	local level = e.self:GetLevel();
 
 	if level >= 55 then
-		if e.self:GetAA(20010) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10010, 1);
+		if e.self:GetAA(20120) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10012, 1);
 		end
-		if e.self:GetAA(20020) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10011, 1);
+		if e.self:GetAA(20130) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10013, 1);
 		end
 	end
 
 	if level >= 65 then
-		if e.self:GetAA(20011) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10010, 1);
+		if e.self:GetAA(20121) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10012, 1);
 		end
-		if e.self:GetAA(20021) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10011, 1);
+		if e.self:GetAA(20131) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10013, 1);
 		end
 	end
 
 	if level >= 75 then
-		if e.self:GetAA(20012) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10010, 1);
+		if e.self:GetAA(20122) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10012, 1);
 		end
-		if e.self:GetAA(20022) == 0 then
-			e.self:GrantAlternateAdvancementAbility(10011, 1);
+		if e.self:GetAA(20132) == 0 then
+			e.self:GrantAlternateAdvancementAbility(10013, 1);
 		end
 	end
-
-  if(e.self:GetLevel() == 20 and not e.self:HasItem(200002)) then
-    e.self:SummonItem(200002);
-  elseif(e.self:GetLevel() == 30 and not e.self:HasItem(200003)) then
-    e.self:SummonItem(200003);
-  elseif(e.self:GetLevel() == 40 and not e.self:HasItem(200004)) then
-    e.self:SummonItem(200004);
-  elseif(e.self:GetLevel() == 50 and not e.self:HasItem(200005)) then
-    e.self:SummonItem(200005);
-  elseif(e.self:GetLevel() == 60 and not e.self:HasItem(200006)) then
-    e.self:SummonItem(200006);
-  elseif(e.self:GetLevel() == 70 and not e.self:HasItem(200007)) then
-    e.self:SummonItem(200007);
-  elseif(e.self:GetLevel() == 80 and not e.self:HasItem(200008)) then
-    e.self:SummonItem(200008);
-  end
 end
 
 test_items = {
