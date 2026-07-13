@@ -284,6 +284,7 @@ vet_aa = {
 
 function event_connect(e)
 	grant_veteran_aa(e)
+	grant_custom_combat_passives(e)
 	don.fix_invalid_faction_state(e.self)
 end
 
@@ -298,6 +299,14 @@ function grant_veteran_aa(e)
             e.self:GrantAlternateAdvancementAbility(aa, 1)
         end
     end
+end
+
+function grant_custom_combat_passives(e)
+	-- Grant all currently eligible ranks for custom combat passive AAs.
+	-- Passing a high point value grants rank 1..N in one call where eligible.
+	for aa_id = 10001, 10013 do
+		e.self:GrantAlternateAdvancementAbility(aa_id, 99, true)
+	end
 end
 
 --[[
@@ -420,18 +429,7 @@ function event_level_up(e)
   e.self:ScribeSpells(1, e.self:GetLevel());
   e.self:LearnDisciplines(1, e.self:GetLevel());
 
-	-- Auto-grant eligible ranks for custom combat passives on every level-up.
-	-- AA IDs: 10001-10013
-	for aa_id = 10001, 10013 do
-		local previous_rank = e.self:GetAAByAAID(aa_id);
-		while e.self:GrantAlternateAdvancementAbility(aa_id, 1, true) do
-			local current_rank = e.self:GetAAByAAID(aa_id);
-			if current_rank <= previous_rank then
-				break;
-			end
-			previous_rank = current_rank;
-		end
-	end
+	grant_custom_combat_passives(e)
 end
 
 test_items = {
